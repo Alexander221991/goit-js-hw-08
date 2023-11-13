@@ -9,8 +9,6 @@ const list = document.querySelector('.gallery');
 
 list.insertAdjacentHTML('beforeend', createMarkup(galleryItems));
 
-list.addEventListener('click', handleClick);
-
 list.style.listStyle = 'none';
 
 function createMarkup(arr) {
@@ -30,16 +28,9 @@ function createMarkup(arr) {
     .join('');
 }
 
-const gallery = new SimpleLightbox('.gallery__link', {
+new SimpleLightbox('.gallery__link', {
   captionType: 'attr',
   captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
 });
-
-function handleClick(event) {
-  event.preventDefault();
-  if (event.target === event.currentTarget) {
-    return;
-  }
-}

@@ -34,10 +34,13 @@ function handleSubmit(event) {
   const messageValue = refs.message.value;
 
   localStorage.removeItem('feedback-form-state');
-  console.log({ email: emailValue, message: messageValue });
-
-  refs.emailInput.value = '';
-  refs.message.value = '';
+  if (emailValue !== '' && messageValue !== '') {
+    refs.emailInput.value = '';
+    refs.message.value = '';
+    console.log({ email: emailValue, message: messageValue });
+  } else {
+    alert('заповніть усі поля');
+  }
 }
 
 loadFromLs();
